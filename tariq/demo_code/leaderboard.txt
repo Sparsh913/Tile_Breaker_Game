@@ -1,0 +1,4 @@
+Player A 1000
+Player B 800
+Player C 600
+Player D 400
