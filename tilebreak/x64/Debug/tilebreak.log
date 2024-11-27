@@ -1,0 +1,195 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Two or more files with the name of demo_additional.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are sparsh\demo_additional.cpp, vasvi\demo_additional.cpp.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Two or more files with the name of fssimplewindow.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are sparsh\fssimplewindow.cpp, vasvi\fssimplewindow.cpp.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Two or more files with the name of main.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are sparsh\main.cpp, vasvi\main.cpp.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Two or more files with the name of ysglfontdata.c will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are sparsh\ysglfontdata.c, tariq\demo_code\ysglfontdata.c, vasvi\ysglfontdata.c.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Two or more files with the name of yssimplesound.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are sparsh\yssimplesound.cpp, tariq\demo_code\yssimplesound.cpp.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Two or more files with the name of demo.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are tariq\demo_code\demo.cpp, tariq\demo_code\finaal\demo.cpp.
+  component_code.cpp
+  project_nish.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\nishanth_group_project\component_code.cpp(6,10): error C1083: Cannot open include file: 'fssimplewindow.h': No such file or directory
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\nishanth_group_project\project_nish.cpp(5,10): error C1083: Cannot open include file: 'fssimplewindow.h': No such file or directory
+  demo_additional.cpp
+  file_management.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\file_management.cpp(79,10): error C1083: Cannot open include file: 'fssimplewindow.h': No such file or directory
+  font.cpp
+  fssimplewindow.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\fssimplewindow.cpp(37,10): error C1083: Cannot open include file: 'sys/ioctl.h': No such file or directory
+  main.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module_main.cpp(163,20): warning C4305: '*=': truncation from 'double' to 'float'
+  (compiling source file 'sparsh/main.cpp')
+  
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module_main.cpp(164,20): warning C4305: '*=': truncation from 'double' to 'float'
+  (compiling source file 'sparsh/main.cpp')
+  
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module_main.cpp(165,21): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'sparsh/main.cpp')
+  
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\file_management.cpp(79,10): error C1083: Cannot open include file: 'fssimplewindow.h': No such file or directory
+  (compiling source file 'sparsh/main.cpp')
+  
+  rendering.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering.cpp(5,10): error C1083: Cannot open include file: 'yspng.h': No such file or directory
+  rendering_module.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(700,103): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'sparsh/rendering_module.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(700,103):
+      the template instantiation context (the oldest one first) is
+          C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module.cpp(178,23):
+          see reference to function template instantiation 'void std::vector<Particle,std::allocator<Particle>>::emplace_back<int&,int&,float,float,float>(int &,int &,float &&,float &&,float &&)' being compiled
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(858,24):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<int&,int&,float,float,float>(int &,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Particle
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(776,20):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<int&,int&,float,float,float>(int &,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Particle
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(794,27):
+          see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int&,int&,float,float,float>(_Alloc &,_Objty *const ,int &,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Particle>,
+              _Ty=Particle,
+              _Objty=Particle
+          ]
+  
+  rendering_module_main.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module_main.cpp(163,20): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module_main.cpp(164,20): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module_main.cpp(165,21): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(700,103): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'sparsh/rendering_module_main.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(700,103):
+      the template instantiation context (the oldest one first) is
+          C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\rendering_module_main.cpp(203,23):
+          see reference to function template instantiation 'void std::vector<Particle,std::allocator<Particle>>::emplace_back<int&,int&,float,float,float>(int &,int &,float &&,float &&,float &&)' being compiled
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(858,24):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<int&,int&,float,float,float>(int &,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Particle
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(776,20):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<int&,int&,float,float,float>(int &,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Particle
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(794,27):
+          see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int&,int&,float,float,float>(_Alloc &,_Objty *const ,int &,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Particle>,
+              _Ty=Particle,
+              _Objty=Particle
+          ]
+  
+  yssimplesound.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(446,23): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(462,5): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(619,24): warning C4244: '=': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(676,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(702,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(726,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(740,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(784,56): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(784,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(791,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(791,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(792,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(792,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(801,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(801,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(802,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(802,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(803,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(803,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(804,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(804,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(837,15): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(859,45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(859,69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(865,16): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(885,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(892,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(917,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(924,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(958,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(964,16): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(1143,14): warning C4244: '=': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(1243,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\sparsh\yssimplesound.cpp(1303,10): error C1083: Cannot open include file: 'alsa/asoundlib.h': No such file or directory
+  demo.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\demo.cpp(79,10): error C1083: Cannot open include file: 'fssimplewindow.h': No such file or directory
+  demo.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\finaal\demo.cpp(3,10): error C1083: Cannot open include file: 'fssimplewindow.h': No such file or directory
+  yspng.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yspng.cpp(992,11): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  yspngenc.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yspngenc.cpp(1675,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yspngenc.cpp(1679,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yspngenc.cpp(1959,5): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  yssimplesound.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(446,23): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(462,5): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(619,24): warning C4244: '=': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(676,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(702,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(726,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(740,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(784,56): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(784,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(791,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(791,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(792,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(792,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(801,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(801,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(802,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(802,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(803,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(803,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(804,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(804,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(837,15): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(859,45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(859,69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(865,16): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(885,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(892,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(917,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(924,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(958,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(964,16): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(1143,14): warning C4244: '=': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(1243,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(1413,33): warning C4311: 'type cast': pointer truncation from 'HWND' to 'int'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(1413,33): warning C4302: 'type cast': truncation from 'HWND' to 'int'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(1554,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(1556,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(1931,22): warning C4244: '=': conversion from 'uint64_t' to 'DWORD', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2017,24): warning C4244: 'initializing': conversion from 'uint64_t' to 'DWORD', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2052,50): warning C4244: '=': conversion from 'uint64_t' to 'DWORD', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2080,24): warning C4244: 'initializing': conversion from 'uint64_t' to 'DWORD', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2103,49): warning C4244: '=': conversion from 'uint64_t' to 'DWORD', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2114,51): warning C4244: 'argument': conversion from 'int64_t' to 'const _Ty', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2114,51): warning C4244:         with
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2114,51): warning C4244:         [
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2114,51): warning C4244:             _Ty=DWORD
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\tariq\demo_code\yssimplesound.cpp(2114,51): warning C4244:         ]
+  demo_additional.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\demo_additional.cpp(44,25): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\demo_additional.cpp(47,24): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\demo_additional.cpp(48,24): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\demo_additional.cpp(51,24): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\demo_additional.cpp(52,24): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\demo_additional.cpp(54,42): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  fssimplewindow.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\fssimplewindow.cpp(946,68): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+  main.cpp
+C:\Users\jhtar\eng_commp_beta\Tile_Breaker_Game\vasvi\main.cpp(7,10): error C1083: Cannot open include file: 'yssimplesound.h': No such file or directory
+  Generating Code...
