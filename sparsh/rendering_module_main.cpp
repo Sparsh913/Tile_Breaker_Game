@@ -117,18 +117,26 @@ public:
     int x, y;
     int width, height;
     bool destroyed;
-    bool isSpecial;  // New member variable to indicate if the tile is special
+    bool isSpecial;
+    int rewardType;  // Reward/penalty type
+    float color[3];  // Tile color
 
-    Tile(int x, int y, int width, int height, bool isSpecial = false)
-        : x(x), y(y), width(width), height(height), destroyed(false), isSpecial(isSpecial) {}
+    Tile(int x, int y, int width, int height, bool isSpecial = false, int rewardType = 0, const float* color = nullptr)
+        : x(x), y(y), width(width), height(height), destroyed(false), isSpecial(isSpecial), rewardType(rewardType) {
+        if (color) {
+            this->color[0] = color[0];
+            this->color[1] = color[1];
+            this->color[2] = color[2];
+        } else {
+            this->color[0] = 1.0f;
+            this->color[1] = 0.0f;
+            this->color[2] = 0.0f;
+        }
+    }
 
     void Render() {
         if (!destroyed) {
-            if (isSpecial) {
-                glColor3f(0.0f, 1.0f, 1.0f);  // Cyan fill color for special tiles
-            } else {
-                glColor3f(1.0f, 0.0f, 0.0f);  // Red fill color for regular tiles
-            }
+            glColor3f(color[0], color[1], color[2]);
             glBegin(GL_QUADS);
             glVertex2i(x, y);
             glVertex2i(x + width, y);
@@ -136,8 +144,7 @@ public:
             glVertex2i(x, y + height);
             glEnd();
 
-            // Draw the border
-            glColor3f(0.0f, 0.0f, 0.0f);  // Black border
+            glColor3f(0.0f, 0.0f, 0.0f);
             glBegin(GL_LINE_LOOP);
             glVertex2i(x, y);
             glVertex2i(x + width, y);
@@ -147,12 +154,9 @@ public:
         }
     }
 
-    bool IsDestroyed() {
-        return destroyed;
-    }
-
-    bool IsSpecial() {
-        return isSpecial;
+    int Hit() {
+        destroyed = true;
+        return rewardType;  // Return the reward type
     }
 };
 
@@ -235,6 +239,26 @@ void RenderBackground() {
     glEnd();
 }
 
+void InitializeTiles(std::vector<Tile> &tiles) {
+    tiles.clear();
+    int startX = (SCREEN_WIDTH - TILE_COLUMNS * TILE_WIDTH) / 2;
+    int startY = 50;
+
+    for (int row = 0; row < TILE_ROWS; ++row) {
+        for (int col = 0; col < TILE_COLUMNS; ++col) {
+            float color[3] = {1.0f, 0.0f, 0.0f};  // Default red
+            bool isSpecial = (rand() % 5 == 0);  // 20% chance for special tile
+            int rewardType = isSpecial ? rand() % 5 : 0;  // Special tiles have a random reward
+            if (isSpecial) {
+                color[0] = 0.0f;  // Cyan for special tiles
+                color[1] = 1.0f;
+                color[2] = 1.0f;
+            }
+            tiles.emplace_back(startX + col * TILE_WIDTH, startY + row * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, isSpecial, rewardType, color);
+        }
+    }
+}
+
 void ResetGame(Ball &ball, Paddle &paddle, std::vector<Tile> &tiles) {
     // Reset ball position and speed
     ball.x = SCREEN_WIDTH / 2;
@@ -246,10 +270,8 @@ void ResetGame(Ball &ball, Paddle &paddle, std::vector<Tile> &tiles) {
     paddle.x = SCREEN_WIDTH / 2 - 50;
     paddle.width = 100;
 
-    // Reset tiles
-    for (auto &tile : tiles) {
-        tile.destroyed = false;
-    }
+    // Reinitialize tiles
+    InitializeTiles(tiles);
 }
 
 int GameLoop() {

@@ -161,6 +161,7 @@
 #include "yssimplesound.h"
 #include "ysglfontdata.h"
 #include <algorithm>
+#include <set>
 // #include "rendering_module_main.h"
 // #include "demo_additional.h"
 // #include "file_management.h"
@@ -182,6 +183,7 @@
 int main(){
     static YsSoundPlayer SoundPlayer;
     static YsSoundPlayer::SoundData paddleSound;
+    srand(time(NULL));
     FsOpenWindow(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 1);
     int game_state = displayMainMenu(); // Tariq's code will handle instructions and leaderboard
     if (game_state == 0) {
@@ -212,10 +214,31 @@ int main(){
         int lives = num_lives(false); // to be defined in vasvi's code; the ball has not fallen yet output initial number of lives
 
         
+        // Randomly select 5 unique positions for special tiles
+        std::set<int> specialTilePositions;
+        while (specialTilePositions.size() < 5) {
+            int position = std::rand() % (TILE_ROWS * TILE_COLUMNS);
+            specialTilePositions.insert(position);
+        }
+
+        // Define colors for the special tiles
+        float specialColors[5][3] = {
+            {0.0f, 1.0f, 0.0f},  // Green
+            {1.0f, 1.0f, 0.0f},  // Yellow
+            {0.0f, 0.0f, 1.0f},  // Blue
+            {1.0f, 0.5f, 0.0f},  // Orange
+            {1.0f, 0.0f, 1.0f}   // Magenta
+        };
+
+        int tileIndex = 0;
+        int specialIndex = 0;
         for (int row = 0; row < TILE_ROWS; row++) {
             for (int col = 0; col < TILE_COLUMNS; col++) {
-                bool isSpecial = (std::rand() % 5 == 0);  // Mark every 5th tile as special
-                tiles.emplace_back(startX + col * TILE_WIDTH, startY + row * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, isSpecial);
+                bool isSpecial = specialTilePositions.count(tileIndex) > 0;
+                int rewardType = isSpecial ? specialIndex : 0;  // Assign a unique reward type to each special tile
+                float* color = isSpecial ? specialColors[specialIndex++] : new float[3]{1.0f, 0.0f, 0.0f};  // Assign color
+                tiles.emplace_back(startX + col * TILE_WIDTH, startY + row * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, isSpecial, rewardType, color);
+                tileIndex++;
             }
         }
         // check whether all the tiles are destroyed or not
@@ -258,20 +281,30 @@ int main(){
             }
 
             bool specialTileHit = false;
+            int specialTileType = -1;
             int score = 0;
-            // Check collision with tiles
             for (auto &tile : tiles) {
                 if (!tile.destroyed && ball.x + ball.radius >= tile.x && ball.x - ball.radius <= tile.x + tile.width &&
                     ball.y + ball.radius >= tile.y && ball.y - ball.radius <= tile.y + tile.height) {
-                    tile.destroyed = true;
+                    specialTileHit = tile.isSpecial;
+                    specialTileType = tile.Hit();
                     ball.speedY = -ball.speedY;
                     particleSystem.Explode(tile.x + tile.width / 2, tile.y + tile.height / 2);
-                    soundPlayer.PlayOneShot(paddleSound);  // Play tile collision sound
-                    score ++;
-                    if (tile.IsSpecial()) {
-                        specialTileHit = true;
-                        lives, ball.speedX,ball.speedY,paddle.width = apply_power_up(ball.speedX,ball.speedY,paddle.width);
-                    }
+                    SoundPlayer.PlayOneShot(paddleSound);
+                    score++;
+                }
+            }
+
+            // This is just a dummy functionality -> to be included in vasvi's code and removed from here
+            if (specialTileHit) {
+                std::cout << "Special Tile Hit! Type: " << specialTileType << std::endl;
+                // Process reward/penalty
+                switch (specialTileType) {
+                    case 0: /* Green tile logic */ break;
+                    case 1: /* Yellow tile logic */ break;
+                    case 2: /* Blue tile logic */ break;
+                    case 3: /* Orange tile logic */ break;
+                    case 4: /* Magenta tile logic */ break;
                 }
             }
 
