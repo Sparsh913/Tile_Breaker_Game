@@ -130,19 +130,88 @@ std::vector<std::string> readLeaderboardFromFile(const std::string& filename) {
     return leaderboard;
 }
 
-// Function to display the Main Menu
-void displayMainMenu() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
-    glColor3f(1.0f, 1.0f, 1.0f); // White text
+//// Function to display the Main Menu
+//void displayMainMenu() {
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
+//    glColor3f(1.0f, 1.0f, 1.0f); // White text
+//
+//    renderText(300, 200, "1. New Game");
+//    renderText(300, 250, "2. Instructions");
+//    renderText(300, 300, "3. Leaderboard");
+//    renderText(300, 350, "Press ESC to exit.");
+//
+//    FsSwapBuffers();
+//}
 
-    renderText(300, 200, "1. New Game");
-    renderText(300, 250, "2. Instructions");
-    renderText(300, 300, "3. Leaderboard");
-    renderText(300, 350, "Press ESC to exit.");
+// Function to display the Main Menu and return the selected state
 
-    FsSwapBuffers();
+int displayMainMenu() {
+    while (true) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
+        glColor3f(1.0f, 1.0f, 1.0f); // White text
+
+        // Render menu options
+        renderText(300, 200, "1. New Game");
+        renderText(300, 250, "2. Instructions");
+        renderText(300, 300, "3. Leaderboard");
+        renderText(300, 350, "Press ESC to exit.");
+
+        FsSwapBuffers();
+        FsPollDevice();
+
+        // Check for user input
+        int key = FsInkey();
+        if (key == FSKEY_1) {
+            return 0; // New Game
+        }
+        else if (key == FSKEY_2) {
+            return 1; // Instructions
+        }
+        else if (key == FSKEY_3) {
+            return 2; // Leaderboard
+        }
+        else if (key == FSKEY_ESC) {
+            return -1; // Exit
+        }
+
+        FsSleep(10); // Prevent CPU overuse
+    }
 }
+
+
+// Function to display the Pause Menu and return the selected state
+int displayPauseMenu() {
+    while (true) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
+        glColor3f(1.0f, 1.0f, 1.0f); // White text
+
+        // Render menu options
+        renderText(300, 200, "1. Resume Game");
+        renderText(300, 250, "2. Exit Game");
+        renderText(300, 300, "3. Start New Game");
+
+        FsSwapBuffers();
+        FsPollDevice();
+
+        // Check for user input
+        int key = FsInkey();
+        if (key == FSKEY_1) {
+            return 1; // Resume Game
+        }
+        else if (key == FSKEY_2) {
+            return 0; // Exit Game
+        }
+        else if (key == FSKEY_3) {
+            return 2; // Start New Game
+        }
+
+        FsSleep(10); // Prevent CPU overuse
+    }
+}
+
 
 // Function to display the New Game screen
 void displayNewGame() {

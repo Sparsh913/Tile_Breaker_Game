@@ -1,3 +1,6 @@
+#ifndef RENDERING_MODULE_MAIN_CPP
+#define RENDERING_MODULE_MAIN_CPP
+
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -338,3 +341,4 @@ int GameLoop() {
 
     return 0;
 }
+#endif
