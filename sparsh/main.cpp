@@ -159,6 +159,7 @@
 #include <cmath>
 #include "fssimplewindow.h"
 #include "yssimplesound.h"
+#include "ysglfontdata.h"
 #include <algorithm>
 // #include "rendering_module_main.h"
 // #include "demo_additional.h"
@@ -213,7 +214,8 @@ int main(){
         
         for (int row = 0; row < TILE_ROWS; row++) {
             for (int col = 0; col < TILE_COLUMNS; col++) {
-                tiles.emplace_back(startX + col * TILE_WIDTH, startY + row * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT);
+                bool isSpecial = (std::rand() % 5 == 0);  // Mark every 5th tile as special
+                tiles.emplace_back(startX + col * TILE_WIDTH, startY + row * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, isSpecial);
             }
         }
         // check whether all the tiles are destroyed or not

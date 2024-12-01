@@ -76,8 +76,8 @@
 
 //#include "D:/studies/Sem 3/EngComp/windows-selected/fssimplewindow.h"
 //#include "D:/studies/Sem 3/EngComp/windows-selected/yssimplesound.h"
-#include <fssimplewindow.h>
-#include <yssimplesound.h>
+#include "fssimplewindow.h"
+#include "yssimplesound.h"
 #include <string>
 #include <fstream>
 #include <cmath>
