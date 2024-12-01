@@ -244,19 +244,33 @@ void InitializeTiles(std::vector<Tile> &tiles) {
     int startX = (SCREEN_WIDTH - TILE_COLUMNS * TILE_WIDTH) / 2;
     int startY = 50;
 
-    for (int row = 0; row < TILE_ROWS; ++row) {
-        for (int col = 0; col < TILE_COLUMNS; ++col) {
-            float color[3] = {1.0f, 0.0f, 0.0f};  // Default red
-            bool isSpecial = (rand() % 5 == 0);  // 20% chance for special tile
-            int rewardType = isSpecial ? rand() % 5 : 0;  // Special tiles have a random reward
-            if (isSpecial) {
-                color[0] = 0.0f;  // Cyan for special tiles
-                color[1] = 1.0f;
-                color[2] = 1.0f;
-            }
-            tiles.emplace_back(startX + col * TILE_WIDTH, startY + row * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, isSpecial, rewardType, color);
+    // Randomly select 5 unique positions for special tiles
+        std::set<int> specialTilePositions;
+        while (specialTilePositions.size() < 5) {
+            int position = std::rand() % (TILE_ROWS * TILE_COLUMNS);
+            specialTilePositions.insert(position);
         }
-    }
+
+        // Define colors for the special tiles
+        float specialColors[5][3] = {
+            {0.0f, 1.0f, 0.0f},  // Green
+            {1.0f, 1.0f, 0.0f},  // Yellow
+            {0.0f, 0.0f, 1.0f},  // Blue
+            {1.0f, 0.5f, 0.0f},  // Orange
+            {1.0f, 0.0f, 1.0f}   // Magenta
+        };
+
+        int tileIndex = 0;
+        int specialIndex = 0;
+        for (int row = 0; row < TILE_ROWS; row++) {
+            for (int col = 0; col < TILE_COLUMNS; col++) {
+                bool isSpecial = specialTilePositions.count(tileIndex) > 0;
+                int rewardType = isSpecial ? specialIndex : 0;  // Assign a unique reward type to each special tile
+                float* color = isSpecial ? specialColors[specialIndex++] : new float[3]{1.0f, 0.0f, 0.0f};  // Assign color
+                tiles.emplace_back(startX + col * TILE_WIDTH, startY + row * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, isSpecial, rewardType, color);
+                tileIndex++;
+            }
+        }
 }
 
 void ResetGame(Ball &ball, Paddle &paddle, std::vector<Tile> &tiles) {
