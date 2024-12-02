@@ -9,6 +9,7 @@
 #include "fssimplewindow.h"
 #include "yssimplesound.h"
 #include <algorithm>
+#include <set>
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -92,6 +93,7 @@ public:
             x >= paddle.x && x <= paddle.x + paddle.width) {
             speedY = -fabs(speedY);  // Reverse Y direction
             soundPlayer.PlayOneShot(wallSound);
+
             return true;  // Collision occurred
         }
         return false;  // No collision
