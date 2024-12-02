@@ -256,6 +256,11 @@ int main(){
                 soundPlayer.PlayOneShot(paddleSound);  // Play paddle collision sound
             }
 
+            // // Check collision with walls
+            // if (ball.CheckScreenCollision()) {
+            //     soundPlayer.PlayOneShot(paddleSound);  // Play wall collision sound
+            // }
+
             bool specialTileHit = false;
             int specialTileType = -1;
             int score = 0;

@@ -91,6 +91,7 @@ public:
         if (y + radius >= paddle.y && y - radius <= paddle.y + paddle.height &&
             x >= paddle.x && x <= paddle.x + paddle.width) {
             speedY = -fabs(speedY);  // Reverse Y direction
+            soundPlayer.PlayOneShot(wallSound);
             return true;  // Collision occurred
         }
         return false;  // No collision
@@ -156,6 +157,7 @@ public:
 
     int Hit() {
         destroyed = true;
+        soundPlayer.PlayOneShot(paddleSound);  // Play tile collision sound
         return rewardType;  // Return the reward type
     }
 };
@@ -230,13 +232,43 @@ public:
 };
 
 void RenderBackground() {
-    glColor3f(0.1f, 0.1f, 0.3f);  // Dark blue background
+    // Set the background color (dark blue)
+    glColor3f(0.1f, 0.1f, 0.3f);
     glBegin(GL_QUADS);
     glVertex2i(0, 0);
     glVertex2i(SCREEN_WIDTH, 0);
     glVertex2i(SCREEN_WIDTH, SCREEN_HEIGHT);
     glVertex2i(0, SCREEN_HEIGHT);
     glEnd();
+
+    // Twinkling stars
+    static const int NUM_STARS = 100; // Number of stars
+    static int starPositions[NUM_STARS][2]; // Array to hold star positions
+    static float starBrightness[NUM_STARS]; // Brightness levels for stars
+    static bool initialized = false;
+
+    // Initialize star positions and brightness
+    if (!initialized) {
+        srand(static_cast<unsigned int>(time(nullptr))); // Seed random generator
+        for (int i = 0; i < NUM_STARS; i++) {
+            starPositions[i][0] = rand() % SCREEN_WIDTH;  // Random X position
+            starPositions[i][1] = rand() % SCREEN_HEIGHT; // Random Y position
+            starBrightness[i] = static_cast<float>(rand() % 100) / 100.0f; // Initial brightness
+        }
+        initialized = true;
+    }
+
+    // Render stars
+    for (int i = 0; i < NUM_STARS; i++) {
+        // Update brightness for twinkling effect
+        starBrightness[i] += (rand() % 3 - 1) * 0.01f; // Adjust brightness randomly
+        starBrightness[i] = std::max(0.1f, std::min(1.0f, starBrightness[i])); // Clamp brightness
+
+        glColor3f(starBrightness[i], starBrightness[i], starBrightness[i]); // Set brightness
+        glBegin(GL_POINTS);
+        glVertex2i(starPositions[i][0], starPositions[i][1]); // Star position
+        glEnd();
+    }
 }
 
 void InitializeTiles(std::vector<Tile> &tiles) {
