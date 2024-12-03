@@ -100,7 +100,7 @@ int life_powerup(int powerUpType) {
 
 // Function to display the number of lives on the screen
 void display_game_stats(int score) {
-    glColor3ub(0, 0, 0); // Set text color to black
+    glColor3f(0.53f, 0.81f, 0.92f); // Set text color to black
 
     glRasterPos2i(50, 30);
     YsGlDrawFontBitmap16x20(("Score: " + std::to_string(score)).c_str());
