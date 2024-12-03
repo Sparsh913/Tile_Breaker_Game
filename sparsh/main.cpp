@@ -49,7 +49,7 @@ int main(){
         soundPlayer.PlayBackground(bg_music);
         
         Paddle paddle(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT - 50, 100, 10, 10);
-        Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 8, 5,-5);
+        Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 8, 3,-3);
 
         // Load ball's wall collision sound
         ball.LoadSounds("bounce.wav");
@@ -207,8 +207,8 @@ int main(){
                     paddle.y = SCREEN_HEIGHT - 50;
                     ball.x = SCREEN_WIDTH / 2;
                     ball.y = SCREEN_HEIGHT / 2;
-                    ball.speedX = 5;
-                    ball.speedY = -5;
+                    ball.speedX = 3;
+                    ball.speedY = -3;
                 }
             }
 
