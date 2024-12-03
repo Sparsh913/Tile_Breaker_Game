@@ -12,7 +12,7 @@
 // #include "rendering_module_main.h"
 // #include "demo_additional.h"
 // #include "file_management.h"
-
+#include <fstream> 
 #include "rendering_module_main.cpp"
 #include "demo_additional.cpp"
 #include "file_management.cpp"
@@ -34,6 +34,7 @@ int main(){
     srand(time(NULL));
     FsOpenWindow(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 1);
     int game_state = displayMainMenu(); // Tariq's code will handle instructions and leaderboard
+    std::cout << "Game State: " << game_state << std::endl;
     if (game_state == 0) {
         srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -184,6 +185,21 @@ int main(){
 
                 if (lives == 0) {
                     std::cout << "Game Over!" << std::endl;
+                    std::string playerName;
+                    std::cout << "Enter your name: ";
+                    std::cin >> playerName;
+                    std::ofstream leaderboardFile("leaderboard.csv", std::ios::app); // Open in append mode
+                    if (leaderboardFile.is_open()) 
+                    {
+                        leaderboardFile << playerName << "," << score << "\n"; // Write name and score
+                        leaderboardFile.close();
+                    std::cout << "Your score has been saved to the leaderboard!" << std::endl;
+                    } 
+                    else 
+                    {
+                        std::cerr << "Error: Could not open leaderboard file." << std::endl;
+                    }
+
                     break; // End game if no lives are left
                 } else {
                     // Reset ball and paddle position to continue the game
@@ -214,7 +230,13 @@ int main(){
         }
         soundPlayer.End();
     }
+    if(game_state == 1){
 
-        return 0;
+        displayInstructions();
 
+    }
+    if (game_state == 2) {
+        std::vector<std::string> leaderboard = readLeaderboardFromFile("leaderboard.csv");
+        displayLeaderboard();
+    }
 }

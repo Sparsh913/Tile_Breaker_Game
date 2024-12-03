@@ -1,81 +1,3 @@
-//#include "D:/studies/Sem 3/EngComp/windows-selected/fssimplewindow.h"
-//#include "D:/studies/Sem 3/EngComp/windows-selected/yssimplesound.h"
-////#include <fssimplewindow.h>
-////#include <yssimplesound.h>
-//#include <cmath>
-//#include <gl/GL.h>
-//#include <vector>  
-//#include <cstdlib>
-//#include <stdio.h>
-//#include <string.h>
-//#include <cmath>
-//#include <chrono>
-//#include "ysglfontdata.h"
-//
-//
-//#define _CRT_SECURE_NO_WARNINGS
-//
-//const int windowWidth = 800;
-//const int windowHeight = 600;
-//const int frameRate = 16;  // calc ~60FPS
-//float spaceshipX = windowWidth / 2; 
-//float spaceshipY = windowHeight - 50; 
-//const int numAsteroids = 7;  // No of asteroids
-//const int demoDuration = 60;  
-//
-//YsSoundPlayer player;
-//YsSoundPlayer::SoundData bgSound, collisionSound;
-//
-//void initSounds() {
-//    player.Start();
-//    if (YSOK != bgSound.LoadWav("mushroom-background-music.wav")) {
-//        printf("Failed to load background sound!\n");
-//    }
-//    if (YSOK != collisionSound.LoadWav("eckkech__collision.wav")) {
-//        printf("Failed to load collision sound!\n");
-//    }
-//}
-//
-//void playBackgroundSound() 
-//{
-//    player.PlayBackground(bgSound);
-//}
-//
-//
-//float calculateDistance(float x1, float y1, float x2, float y2)  // eucl dist
-//{
-//    return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-//}
-//
-//// star formation. i have made it such that they will be randomly initialized (both position and speed)
-//// also made functions to reposition the stars when they get out of the scene
-//
-//struct Star 
-//{
-//    float x, y;
-//    float speed;
-//};
-//
-//std::vector<Star> stars;
-//const int numStars = 100;  // No of stars
-//
-//// Initialize the stars
-//void initStars() 
-//{
-//    for (int i = 0; i < numStars; ++i) 
-//    {
-//        Star star;
-//        star.x = rand() % windowWidth;
-//        star.y = rand() % windowHeight;
-//        star.speed = 1 + (rand() % 3);  // Speed: 1 to 3
-//        stars.push_back(star);
-//    }
-//}
-//
-
-
-//#include "D:/studies/Sem 3/EngComp/windows-selected/fssimplewindow.h"
-//#include "D:/studies/Sem 3/EngComp/windows-selected/yssimplesound.h"
 #include "fssimplewindow.h"
 #include "yssimplesound.h"
 #include <string>
@@ -90,12 +12,6 @@
 #include "ysglfontdata.h"
 
 
-
-// Screen dimensions
-// const int SCREEN_WIDTH = 800;
-// const int SCREEN_HEIGHT = 600;
-
-// Current menu state
 enum MenuState {
     MAIN_MENU,
     NEW_GAME,
@@ -130,49 +46,120 @@ std::vector<std::string> readLeaderboardFromFile(const std::string& filename) {
     return leaderboard;
 }
 
-//// Function to display the Main Menu
-//void displayMainMenu() {
-//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
-//    glColor3f(1.0f, 1.0f, 1.0f); // White text
-//
-//    renderText(300, 200, "1. New Game");
-//    renderText(300, 250, "2. Instructions");
-//    renderText(300, 300, "3. Leaderboard");
-//    renderText(300, 350, "Press ESC to exit.");
-//
-//    FsSwapBuffers();
-//}
+// int displayMainMenu() {
+//     while (true) {
+//         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//         glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
+//         glColor3f(1.0f, 1.0f, 1.0f); // White text
 
-// Function to display the Main Menu and return the selected state
+//         // Render menu options
+//         renderText(300, 200, "1. New Game");
+//         renderText(300, 250, "2. Instructions");
+//         renderText(300, 300, "3. Leaderboard");
+//         renderText(300, 350, "ESC to exit");
+
+//         FsSwapBuffers();
+//         FsPollDevice();
+
+//         int lb, mb, rb, mx, my;
+//         auto mouseEvent = FsGetMouseEvent(lb, mb, rb, mx, my);
+
+//         int newGameTop = 200, newGameBottom = 230;
+//         int instructionsTop = 250, instructionsBottom = 280;
+//         int leaderboardTop = 300, leaderboardBottom = 330;
+//         int exitTop = 350, exitBottom = 380;
+
+//         if (mouseEvent == FSMOUSEEVENT_LBUTTONDOWN)
+//         {
+//             if (mx >= 300 && mx <= 600)
+//             {
+//                 if (my >= newGameTop && my <= newGameBottom)
+//                 {
+//                     return 0; // New Game
+//                 }
+//                 else if (my >= instructionsTop && my <= instructionsBottom)
+//                 {
+//                     return 1; // Instructions
+//                 }
+//                 else if (my >= leaderboardTop && my <= leaderboardBottom)
+//                 {
+//                     return 2; // Leaderboard
+//                 }
+//                 else if (my >= exitTop && my <= exitBottom)
+//                 {
+//                     return -1; // Exit
+//                 }
+//             }
+
+//         }
+
+//         int key = FsInkey();
+//         if (key == FSKEY_ESC) {
+//             return -1; // Exit
+//         }  
+
+//         FsSleep(10); // Prevent CPU overuse
+//     }
+// }
 
 int displayMainMenu() {
     while (true) {
+        // Clear the screen
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
-        glColor3f(1.0f, 1.0f, 1.0f); // White text
+        glColor3f(1.0f, 1.0f, 1.0f);          // White text
 
         // Render menu options
         renderText(300, 200, "1. New Game");
         renderText(300, 250, "2. Instructions");
         renderText(300, 300, "3. Leaderboard");
-        renderText(300, 350, "Press ESC to exit.");
+        renderText(300, 350, "ESC to exit");
 
         FsSwapBuffers();
         FsPollDevice();
 
-        // Check for user input
+        // Retrieve mouse input
+        int lb, mb, rb, mx, my;
+        auto mouseEvent = FsGetMouseEvent(lb, mb, rb, mx, my);
+
+        // Flip `my` to match OpenGL's coordinate system
+        my = SCREEN_HEIGHT - my;
+
+        // Debugging: Print mouse events and coordinates
+        std::cout << "Mouse Event: " << mouseEvent
+                  << ", mx: " << mx << ", my: " << my
+                  << ", lb: " << lb << ", rb: " << rb << std::endl;
+
+        // Define button boundaries
+        int buttonX1 = 300, buttonX2 = 560;  // Horizontal range for all options
+        int newGameY1 = 390, newGameY2 = 420;       // Y-range for "New Game"
+        int instructionsY1 = 345, instructionsY2 = 380; // Y-range for "Instructions"
+        int leaderboardY1 = 300, leaderboardY2 = 335;   // Y-range for "Leaderboard"
+        int exitY1 = 255 - 24, exitY2 = 290;                 // Y-range for "ESC to Exit"
+
+        // Check for mouse click within button areas
+        if (mouseEvent == FSMOUSEEVENT_LBUTTONDOWN) {
+            if (mx >= buttonX1 && mx <= buttonX2) {
+                if (my >= newGameY1 && my <= newGameY2) {
+                    std::cout << "New Game selected!" << std::endl;
+                    return 0; // New Game
+                } else if (my >= instructionsY1 && my <= instructionsY2) {
+                    std::cout << "Instructions selected!" << std::endl;
+                    return 1; // Instructions
+                } else if (my >= leaderboardY1 && my <= leaderboardY2) {
+                    std::cout << "Leaderboard selected!" << std::endl;
+                    return 2; // Leaderboard
+                } else if (my >= exitY1 && my <= exitY2) {
+                    std::cout << "Exit selected!" << std::endl;
+                    return -1; // Exit
+                }
+            }
+        }
+
+        // Allow ESC key to exit
         int key = FsInkey();
-        if (key == FSKEY_1) {
-            return 0; // New Game
-        }
-        else if (key == FSKEY_2) {
-            return 1; // Instructions
-        }
-        else if (key == FSKEY_3) {
-            return 2; // Leaderboard
-        }
-        else if (key == FSKEY_ESC) {
+        if (key == FSKEY_ESC) {
+            std::cout << "ESC pressed. Exiting..." << std::endl;
             return -1; // Exit
         }
 
@@ -225,42 +212,64 @@ void displayNewGame() {
     FsSwapBuffers();
 }
 
-// Function to display the Instructions screen
 void displayInstructions() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.2f, 0.2f, 0.8f, 1.0f); // Blue background
-    glColor3f(1.0f, 1.0f, 1.0f);
+    while (true) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.2f, 0.2f, 0.8f, 1.0f); // Blue background
+        glColor3f(1.0f, 1.0f, 1.0f);
 
-    renderText(200, 200, "Instructions:");
-    renderText(200, 250, "1. Use arrow keys to navigate.");
-    renderText(200, 300, "2. Press Space to select.");
-    renderText(200, 350, "Press ESC to return to the Main Menu.");
+        renderText(200, 200, "Instructions:");
+        renderText(200, 250, "1. Use arrow keys to navigate.");
+        renderText(200, 300, "2. Press Space to select.");
+        renderText(200, 350, "Press ESC to return to the Main Menu.");
 
-    FsSwapBuffers();
+        FsSwapBuffers();
+        FsPollDevice();
+
+        // Check for user input
+        int key = FsInkey();
+        if (key == FSKEY_ESC) {
+            return; // Exit the function when ESC is pressed
+        }
+
+        FsSleep(10); // Prevent CPU overuse
+    }
 }
 
 // Function to display the Leaderboard screen
 void displayLeaderboard() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.1f, 0.6f, 0.1f, 1.0f); // Green background
-    glColor3f(1.0f, 1.0f, 1.0f);
+    while (true) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.1f, 0.6f, 0.1f, 1.0f); // Green background
+        glColor3f(1.0f, 1.0f, 1.0f);
 
-    renderText(200, 150, "Leaderboard:");
+        renderText(200, 150, "Leaderboard:");
 
-    // Read leaderboard data from file
-    auto leaderboard = readLeaderboardFromFile("leaderboard.txt");
+        // Read leaderboard data from file
+        auto leaderboard = readLeaderboardFromFile("leaderboard.csv");
 
-    // Display leaderboard
-    int y = 200; // Initial y-position
-    for (const auto& entry : leaderboard) {
-        renderText(200, y, entry.c_str());
-        y += 50; // Move down for the next entry
+        // Display leaderboard
+        int y = 200; // Initial y-position
+        for (const auto& entry : leaderboard) {
+            renderText(200, y, entry.c_str());
+            y += 50; // Move down for the next entry
+        }
+
+        renderText(200, y, "Press ESC to return to the Main Menu.");
+
+        FsSwapBuffers();
+        FsPollDevice();
+
+        // Check for user input
+        int key = FsInkey();
+        if (key == FSKEY_ESC) {
+            return; // Exit the function when ESC is pressed
+        }
+
+        FsSleep(10); // Prevent CPU overuse
     }
-
-    renderText(200, y, "Press ESC to return to the Main Menu.");
-
-    FsSwapBuffers();
 }
+
 
 
 // Function to handle the "Resume" button
@@ -290,56 +299,3 @@ void displayBetterLuckNextTime() {
     FsSleep(3000); // Display the message for 3 seconds
     currentState = MAIN_MENU; // Return to the Main Menu
 }
-
-
-// Main function
-// int main() {
-//     FsOpenWindow(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 1, "Game Menu");
-
-//     bool terminate = false;
-
-//     while (!terminate) {
-//         FsPollDevice();
-//         auto key = FsInkey();
-
-//         if (key == FSKEY_ESC) { // Exit or return to Main Menu
-//             if (currentState == MAIN_MENU) {
-//                 terminate = true;
-//             }
-//             else {
-//                 currentState = MAIN_MENU;
-//             }
-//         }
-//         else if (currentState == MAIN_MENU) {
-//             if (key == FSKEY_1) { // New Game
-//                 currentState = NEW_GAME;
-//             }
-//             else if (key == FSKEY_2) { // Instructions
-//                 currentState = INSTRUCTIONS;
-//             }
-//             else if (key == FSKEY_3) { // Leaderboard
-//                 currentState = LEADERBOARD;
-//             }
-//         }
-
-//         // Render the appropriate screen based on the current state
-//         switch (currentState) {
-//         case MAIN_MENU:
-//             displayMainMenu();
-//             break;
-//         case NEW_GAME:
-//             displayNewGame();
-//             break;
-//         case INSTRUCTIONS:
-//             displayInstructions();
-//             break;
-//         case LEADERBOARD:
-//             displayLeaderboard();
-//             break;
-//         }
-
-//         FsSleep(10); // Reduce CPU usage
-//     }
-
-//     return 0;
-// }
