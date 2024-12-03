@@ -20,6 +20,7 @@ int num_lives(bool fell) {
 
 //Level up and render
 void level_up(float &ball_speedx, float &ball_speedy, int &paddle_width) {
+    glColor3f(0.53f, 0.81f, 0.92f);
     glRasterPos2i(200, 300);
     YsGlDrawFontBitmap20x28(("Level " + std::to_string(level) + " Completed! ").c_str());
     FsSwapBuffers();
@@ -33,9 +34,9 @@ void level_up(float &ball_speedx, float &ball_speedy, int &paddle_width) {
     // FsSleep(500);
 
     // Increase paddle width and ball speed for the next level
-    paddle_width *= 0.7; // Increase paddle width by 20%
-    ball_speedx *= 1.5f; // Increase ball speed by 20%
-    ball_speedy *= 1.5f;
+    paddle_width *= 0.9; // Increase paddle width by 20%
+    ball_speedx *= 1.2f; // Increase ball speed by 20%
+    ball_speedy *= 1.2f;
 }
 
 // Function to apply power-ups
