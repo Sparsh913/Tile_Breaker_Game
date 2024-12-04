@@ -183,13 +183,15 @@ void displayInstructions() {
         glColor3f(1.0f, 1.0f, 1.0f);         // White text
 
         // Centered text rendering
-        renderText(150, 100, "Instructions:");
-        renderText(150, 150, "Green Tiles - Extra Life");
-        renderText(150, 200, "Yellow Tiles - Increase Paddle Size");
-        renderText(150, 250, "Blue Tiles - Increase Ball Speed");
-        renderText(150, 300, "Orange Tiles - Decrease Ball Speed");
-        renderText(150, 350, "Magenta Tiles - Decrease Paddle Size");
-        renderText(150, 450, "Press ESC to return to the Main Menu.");
+        renderText(40, 100, "Instructions:");
+        renderText(40, 150, "Green Tiles - Extra Life");
+        renderText(40, 200, "Yellow Tiles - Increase Paddle Size");
+        renderText(40, 250, "Blue Tiles - Increase Ball Speed");
+        renderText(40, 300, "Orange Tiles - Decrease Ball Speed");
+        renderText(40, 350, "Magenta Tiles - Decrease Paddle Size");
+        renderText(40, 400, "Use left and right Arrows to move the paddle.");
+        renderText(40, 500, "Press ESC to return to the Main Menu.");
+
 
         FsSwapBuffers();
         FsPollDevice();
@@ -210,7 +212,7 @@ void displayLeaderboard() {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black background
         glColor3f(1.0f, 1.0f, 1.0f);          // White text
 
-        renderText(200, 50, "Leaderboard:");
+        renderText(100, 50, "Leaderboard:");
 
         // Read leaderboard data from file
         std::vector<std::pair<std::string, int>> leaderboard;
@@ -235,16 +237,16 @@ void displayLeaderboard() {
         });
 
         // Display leaderboard
-        renderText(200, 100, "Rank");
-        renderText(400, 100, "Name");
-        renderText(600, 100, "Score");
+        renderText(130, 100, "Rank");
+        renderText(330, 100, "Name");
+        renderText(530, 100, "Score");
 
         int y = 150; // Start position for rows
         int rank = 1;
         for (const auto &entry : leaderboard) {
-            renderText(200, y, std::to_string(rank).c_str()); // Rank
-            renderText(400, y, entry.first.c_str());          // Name
-            renderText(600, y, std::to_string(entry.second).c_str()); // Score
+            renderText(130, y, std::to_string(rank).c_str()); // Rank
+            renderText(330, y, entry.first.c_str());          // Name
+            renderText(530, y, std::to_string(entry.second).c_str()); // Score
             y += 50;
             rank++;
         }
