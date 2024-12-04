@@ -1,4 +1,4 @@
-# Brick Breaker Game
+# Tile Breaker Game
 
 ## Contributers:
 
@@ -62,7 +62,7 @@ Use the mouse to select an option from the main menu by clicking on it or pressi
 - **Game Over**: When all lives are lost, the game ends. Enter your name to save your score to the leaderboard.
 - **Leaderboard**: Accessible from the main menu, it shows the highest scores of previous players.
 
-![Leaderboard](./LEADERBOARD.jpeg)
+![Leaderboard](./leaderboard.jpeg)
 
 ### Instructions
 - Use the **Arrow Keys** to control the paddle.
