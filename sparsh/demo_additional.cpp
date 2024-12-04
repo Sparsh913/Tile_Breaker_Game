@@ -8,7 +8,7 @@
 // Global Variables
 // int score = 0; // Default score when game starts
 // int lives = 3; // Default lives when game starts
-int level = 1; // Default value for level
+// int level = 1; // Default value for level
 
 // check lives and return them
 int num_lives(bool fell, int lives) {
@@ -19,7 +19,7 @@ int num_lives(bool fell, int lives) {
 }
 
 //Level up and render
-void level_up(float &ball_speedx, float &ball_speedy, int &paddle_width) {
+void level_up(int level, float &ball_speedx, float &ball_speedy, int &paddle_width) {
     glColor3f(0.53f, 0.81f, 0.92f);
     glRasterPos2i(200, 300);
     YsGlDrawFontBitmap20x28(("Level " + std::to_string(level) + " Completed! ").c_str());
@@ -100,7 +100,7 @@ int life_powerup(int powerUpType,int lives) {
 // }
 
 // Function to display the number of lives on the screen
-void display_game_stats(int score, int lives) {
+void display_game_stats(int score, int lives, int level) {
     glColor3f(0.53f, 0.81f, 0.92f); // Set text color to black
 
     glRasterPos2i(50, 30);

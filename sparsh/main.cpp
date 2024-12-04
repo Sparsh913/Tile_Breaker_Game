@@ -65,6 +65,7 @@ int main(){
             int startY = 50;  // Fixed vertical position
 
             int lives = 3; // to be defined in vasvi's code; the ball has not fallen yet output initial number of lives
+            int level = 1;
             InitializeTiles(tiles);
 
             int score = 0;
@@ -153,7 +154,7 @@ int main(){
                     // std::cout << "All tiles are destroyed! You win!" << std::endl;
                     // break;
                     bool all_destroyed = true;
-                    level_up(ball.speedX, ball.speedY, paddle.width);
+                    level_up(level, ball.speedX, ball.speedY, paddle.width);
                     paddle.x = SCREEN_WIDTH / 2 - paddle.width / 2;
                     paddle.y = SCREEN_HEIGHT - 50;
                     ball.x = SCREEN_WIDTH / 2;
@@ -201,7 +202,7 @@ int main(){
                 // Render everything
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
                 RenderBackground();
-                display_game_stats(score, lives);
+                display_game_stats(score, lives, level);
                 paddle.Render();
                 ball.Render();
                 for (auto &tile : tiles) {
