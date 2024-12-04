@@ -7,11 +7,11 @@
 
 // Global Variables
 // int score = 0; // Default score when game starts
-int lives = 3; // Default lives when game starts
+// int lives = 3; // Default lives when game starts
 int level = 1; // Default value for level
 
 // check lives and return them
-int num_lives(bool fell) {
+int num_lives(bool fell, int lives) {
     if(fell == true) {
         lives -=1;
     }
@@ -79,7 +79,7 @@ void apply_power_up(float &ball_speedx, float &ball_speedy, int &paddle_width, i
     }
 }
 
-int life_powerup(int powerUpType) {
+int life_powerup(int powerUpType,int lives) {
     if (powerUpType == 0) {
         lives += 1;
     }
@@ -100,7 +100,7 @@ int life_powerup(int powerUpType) {
 // }
 
 // Function to display the number of lives on the screen
-void display_game_stats(int score) {
+void display_game_stats(int score, int lives) {
     glColor3f(0.53f, 0.81f, 0.92f); // Set text color to black
 
     glRasterPos2i(50, 30);

@@ -49,7 +49,7 @@ int main(){
             soundPlayer.PlayBackground(bg_music);
         
             Paddle paddle(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT - 50, 100, 10, 10);
-            Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 8, 1,-1);
+            Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 8, 2,-2);
 
             // Load ball's wall collision sound
             ball.LoadSounds("bounce.wav");
@@ -64,7 +64,7 @@ int main(){
             int startX = (SCREEN_WIDTH - totalTileWidth) / 2;  // Center horizontally
             int startY = 50;  // Fixed vertical position
 
-            int lives = num_lives(false); // to be defined in vasvi's code; the ball has not fallen yet output initial number of lives
+            int lives = 3; // to be defined in vasvi's code; the ball has not fallen yet output initial number of lives
             InitializeTiles(tiles);
 
             int score = 0;
@@ -88,7 +88,7 @@ int main(){
                         // break;
                         ResetGame(ball, paddle, tiles);
                         // score = 0;
-                        lives = num_lives(true); // to be defined in vasvi's code; the ball has fallen output updated number of lives
+                        lives = num_lives(true, lives); // to be defined in vasvi's code; the ball has fallen output updated number of lives
                     }
                 }
 
@@ -132,7 +132,7 @@ int main(){
                     // Apply power-up using the function from demo_additional.cpp
                     switch (specialTileType) {
                         case 0:
-                            lives = life_powerup(0);
+                            lives = life_powerup(0, lives);
                             break;
                         case 1:
                             apply_power_up(ball.speedX, ball.speedY, paddle.width, 1);
@@ -164,7 +164,7 @@ int main(){
                 // Check if ball is out of bounds
                 if (ball.IsOutOfBounds()) {
                     bool fell = true;
-                    lives = num_lives(fell); // Update number of lives since ball fell
+                    lives = num_lives(fell, lives); // Update number of lives since ball fell
 
                     if (lives == 0) {
                         std::cout << "Game Over!" << std::endl;
@@ -190,8 +190,8 @@ int main(){
                         paddle.y = SCREEN_HEIGHT - 50;
                         ball.x = SCREEN_WIDTH / 2;
                         ball.y = SCREEN_HEIGHT / 2;
-                        ball.speedX = 1;
-                        ball.speedY = -1;
+                        ball.speedX = 2;
+                        ball.speedY = -2;
                     }
                 }
 
@@ -201,7 +201,7 @@ int main(){
                 // Render everything
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
                 RenderBackground();
-                display_game_stats(score);
+                display_game_stats(score, lives);
                 paddle.Render();
                 ball.Render();
                 for (auto &tile : tiles) {
